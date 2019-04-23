@@ -1,0 +1,4 @@
+#!/bin/bash
+# Gets revision where the current directory's branch split off from master
+BRANCH_NAME=${1:-`git branch | grep \* | cut -d ' ' -f2`}
+diff -u <(git rev-list --first-parent $BRANCH_NAME)  <(git rev-list --first-parent master) | sed -ne 's/^ //p' | head -1

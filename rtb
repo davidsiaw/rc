@@ -1,0 +1,5 @@
+#!/bin/bash
+FILE_TO_REVERT=${@:-app}
+echo "reverting '$FILE_TO_REVERT' to the branch point"
+git checkout `~/bpo` -- $FILE_TO_REVERT
+git reset
